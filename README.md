@@ -59,7 +59,9 @@ python inference.py \
     --metrics $metrics \
     --othertag selfquestion_capasr
 ```
-To score the inference results:
+Please check `test.sh` for more baseline inference implementations.
+
+### To score the inference results:
 ```
 python score.py \
   exp/qwen25omni_newdata_capasr_QA_all_linear/mia_qwen25omni_generation_1_samples_minkpp_all_selfquestion_capasr.json
@@ -71,3 +73,14 @@ per_audio = True  # evaluate membership inference at per-sample or per-audio lev
 score_topk = 2  # The K value in top-k used to average
 to_combine  # The list of metric names to combine as the final singal
 ```
+
+## For SALMONN-2 Experiments
+```
+cd salmonn2
+bash train.sh
+bash test.sh
+cd ../
+python score.py /path/to/the/result_json_file
+```
+
+The structure is the same as the Qwen2.5-Omni setting.
