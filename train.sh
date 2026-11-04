@@ -1,7 +1,7 @@
 
 # Activate the conda environment here
 
-expdir=exp/qwen25omni_newdata_capasr_QA_all_linear_longer
+expdir=exp/qwen25omni_newdata_capasr_QA_all_linear
 mkdir -p $expdir
 
 train_data=data/newdata_train_capasr_QA.json
@@ -15,7 +15,7 @@ torchrun --nproc_per_node=1 --master_port=12345 train.py \
   --per_device_train_batch_size 1 \
   --gradient_accumulation_steps 8 \
   --learning_rate 2e-5 \
-  --num_train_epochs 5 \
+  --num_train_epochs 3 \
   --max_seq_length 4096 \
   --save_steps 1000 \
   --logging_steps 1 \
