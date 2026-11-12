@@ -9,8 +9,9 @@ pip install -r requirements.txt
 ```
 
 ### Downloading Data
-The raw audio files will be released upon acceptance\
-Store downloaded data under `data/`
+AudioTraceBench contains 1,285 audio recordings collected from publicly accessible YouTube videos. To respect privacy and copyright, we do not redistribute the original audio files. Instead, we provide the corresponding YouTube video links for research purposes.
+
+Access to the benchmark metadata is managed through a request-based process on Hugging Face. Please refer to the Ethics Considerations section of our paper for further details.
 
 ### Finetune Qwen2.5-Omni
 ```
@@ -77,6 +78,17 @@ to_combine  # The list of metric names to combine as the final singal
 ## For SALMONN-2 Experiments
 ```
 cd salmonn2
+bash train.sh
+bash test.sh
+cd ../
+python score.py /path/to/the/result_json_file
+```
+
+The structure is the same as the Qwen2.5-Omni setting.
+
+## For StepAudio-2-mini Experiments
+```
+cd StepAudio2
 bash train.sh
 bash test.sh
 cd ../
